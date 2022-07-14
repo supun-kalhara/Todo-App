@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import nextId from "react-id-generator";
 
 const TodoForm = (props) => {
   const [input, setInput] = useState("");
   const randId = nextId();
+
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  });
 
   const onFormChange = (e) => {
     setInput(e.target.value);
@@ -28,6 +34,7 @@ const TodoForm = (props) => {
         name="text"
         className="todo-input"
         onChange={onFormChange}
+        ref={inputRef}
       />
       <button className="todo-btn">Add</button>
     </form>

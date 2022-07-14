@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col } from "react-bootstrap";
+import "./TodoList.css";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -14,7 +17,6 @@ const TodoList = () => {
     const newTodos = [todo, ...todos];
 
     setTodos(newTodos);
-    console.log(todo, ...todos);
   };
 
   const updateTodo = (id, val) => {
@@ -27,6 +29,7 @@ const TodoList = () => {
   };
 
   const removeTodo = (id) => {
+    console.log("removing", id);
     const removeArr = [...todos].filter((todo) => todo.id !== id);
     setTodos(removeArr);
   };
@@ -42,16 +45,28 @@ const TodoList = () => {
   };
 
   return (
-    <div>
-      <h1>Today's Tasks</h1>
-      <TodoForm onSubmit={addTodo} />
-      <Todo
-        todos={todos}
-        completeTodo={completeTodo}
-        removeTodo={removeTodo}
-        updateTodo={updateTodo}
-      />
-    </div>
+    <Container fluid="md">
+      <Col></Col>
+      <Col>
+        <div className="main-wrapper">
+          <Row>
+            <h1 className="d-flex justify-content-center">Today's Tasks</h1>
+          </Row>
+          <Row>
+            <TodoForm onSubmit={addTodo} />
+          </Row>
+          <Row>
+            <Todo
+              todos={todos}
+              completeTodo={completeTodo}
+              removeTodo={removeTodo}
+              updateTodo={updateTodo}
+            />
+          </Row>
+        </div>
+      </Col>
+      <Col></Col>
+    </Container>
   );
 };
 
