@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import nextId from "react-id-generator";
 
+import { Input, Button } from "antd";
+import "antd/dist/antd.css";
+
 const TodoForm = (props) => {
   const [input, setInput] = useState("");
   const randId = nextId();
@@ -27,7 +30,19 @@ const TodoForm = (props) => {
 
   return (
     <form className="todo-form" onSubmit={onFormSubmit}>
-      <input
+      <Input.Group compact>
+        <Input
+          style={{ width: "calc(100% - 200px)" }}
+          defaultValue="Add an entree"
+          onChange={onFormChange}
+          ref={inputRef}
+          value={input}
+        />
+        <button class="todo-btn">
+          <Button type="primary">Add</Button>
+        </button>
+      </Input.Group>
+      {/* <input
         type="text"
         placeholder="Add an entree"
         value={input}
@@ -36,7 +51,7 @@ const TodoForm = (props) => {
         onChange={onFormChange}
         ref={inputRef}
       />
-      <button className="todo-btn">Add</button>
+      <button className="todo-btn">Add</button> */}
     </form>
   );
 };
