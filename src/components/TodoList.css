@@ -8,5 +8,8 @@ h1 {
 }
 
 .main-wrapper {
+  position: absolute;
   background-color: #175873;
+  width: 80%;
+  height: 100%;
 }
