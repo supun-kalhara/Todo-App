@@ -11,10 +11,10 @@ const TodoForm = (props) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    // props.onSubmit({
-    //   id: randId,
-    //   text: input,
-    // });
+    props.onSubmit({
+      id: randId,
+      text: input,
+    });
 
     setInput("");
   };
