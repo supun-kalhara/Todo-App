@@ -1,5 +1,21 @@
 .todo-row {
   margin: 10px;
-  background-color: #68a4f1;
   border-radius: 5px;
+  height: 50px;
+}
+
+.todo-row:nth-child(3n + 1) {
+  background-color: #68a4f1;
+}
+
+.todo-row:nth-child(3n + 2) {
+  background-color: #2b6ad0;
+}
+
+.main-row {
+  width: 100%;
+}
+
+.icons-1 {
+  padding-right: 4px;
 }
