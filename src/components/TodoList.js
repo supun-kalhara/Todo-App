@@ -4,7 +4,7 @@ import Todo from "./Todo";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
 import "./TodoList.css";
-import bgImage from "./bg-image.webp";
+// import bgImage from "./bg-image.webp";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -47,13 +47,17 @@ const TodoList = () => {
 
   return (
     <div className="main-wrapper d-flex justify-content-center align-items-center">
-      <div className="wrapper rounded p-4 p-sm-3">
+      <div className="wrapper rounded p-2 p-sm-3">
         <div className="d-flex justify-content-center">
           <div className="col">
             <div className="text-center">
               <img className="img" />
               <h1 className="heading">Today's Tasks</h1>
-              <TodoForm onSubmit={addTodo} />
+              <Row>
+                <span className="search-bar">
+                  <TodoForm onSubmit={addTodo} />
+                </span>
+              </Row>
               <Todo
                 todos={todos}
                 completeTodo={completeTodo}

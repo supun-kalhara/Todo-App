@@ -37,9 +37,12 @@ const TodoForm = (props) => {
           onChange={onFormChange}
           ref={inputRef}
           value={input}
+          size="large"
         />
         <button class="todo-btn">
-          <Button type="primary">Add</Button>
+          <Button type="primary" size="large">
+            Add
+          </Button>
         </button>
       </Input.Group>
       {/* <input
