@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { CloseCircleOutlined, EditOutlined } from "@ant-design/icons";
-import { Alert, Space } from "antd";
 import "antd/dist/antd.css";
 import "./Todo.css";
 import { Row, Col } from "react-bootstrap";
@@ -28,18 +27,17 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
   return todos.map((todo, index) => (
     <div
       className={
-        todo.isComplete
-          ? "todo-row complete"
-          : "todo-row d-flex justify-content-center align-items-center"
+        "d-flex justify-content-center align-items-center " +
+        (todo.isComplete ? "todo-row complete" : "todo-row ")
       }
       key={index}
     >
-      <div className="row main-row">
+      <Row>
         <Col xs={10}>
           <div
             key={todo.id}
             onClick={() => completeTodo(todo.id)}
-            className="d-flex justify-content-center"
+            className="d-flex justify-content-center todo-text"
           >
             {todo.text}
           </div>
@@ -58,34 +56,8 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
             />
           </div>
         </Col>
-      </div>
+      </Row>
     </div>
-
-    // <div
-    //   className={todo.isComplete ? "todo-row complete" : "todo-row"}
-    //   key={index}
-    // >
-    //   <Alert
-    //     key={todo.id}
-    //     onClick={() => completeTodo(todo.id)}
-    //     message={todo.text}
-    //     type="success"
-    //     action={
-    //       <Space>
-    //         <div className="icons">
-    //           <CloseCircleOutlined
-    //             onClick={() => removeTodo(todo.id)}
-    //             className="delete-icon"
-    //           />
-    //           <EditOutlined
-    //             onClick={() => setEdit({ id: todo.id, value: todo.text })}
-    //             className="edit-icon"
-    //           />
-    //         </div>
-    //       </Space>
-    //     }
-    //   />
-    // </div>
   ));
 };
 

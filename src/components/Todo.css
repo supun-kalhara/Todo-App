@@ -1,7 +1,7 @@
 .todo-row {
   margin: 10px;
   border-radius: 5px;
-  height: 50px;
+  min-height: 50px;
 }
 
 .todo-row:nth-child(3n + 1) {
@@ -12,10 +12,24 @@
   background-color: #2b6ad0;
 }
 
-.main-row {
+.todo-row:nth-child(3n + 3) {
+  background-color: #2b4d91;
+}
+
+.todo-row .row {
   width: 100%;
 }
 
 .icons-1 {
   padding-right: 4px;
+}
+
+.complete {
+  text-decoration: line-through;
+}
+
+.todo-text {
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
 }

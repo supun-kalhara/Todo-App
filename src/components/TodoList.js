@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import "./TodoList.css";
 // import bgImage from "./bg-image.webp";
 
@@ -30,7 +30,6 @@ const TodoList = () => {
   };
 
   const removeTodo = (id) => {
-    console.log("removing", id);
     const removeArr = [...todos].filter((todo) => todo.id !== id);
     setTodos(removeArr);
   };
@@ -49,10 +48,10 @@ const TodoList = () => {
     <div className="main-wrapper d-flex justify-content-center align-items-center">
       <div className="wrapper rounded p-2 p-sm-3">
         <div className="d-flex justify-content-center">
-          <div className="col">
+          <Col>
             <div className="text-center">
               <img className="img" />
-              <h1 className="heading">Today's Tasks</h1>
+              <h1 className="heading">TODAY'S TASKS</h1>
               <Row>
                 <span className="search-bar">
                   <TodoForm onSubmit={addTodo} />
@@ -65,7 +64,7 @@ const TodoList = () => {
                 updateTodo={updateTodo}
               />
             </div>
-          </div>
+          </Col>
         </div>
       </div>
     </div>
